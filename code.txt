@@ -1,0 +1,22 @@
+import smtplib
+
+input_file = open ('food.csv','r') 
+output_file = open ('food_file_copy.csv','w') 
+csv = input_file.read()
+output_file.write(csv)
+input_file.close()
+output_file.close()
+	
+subject = 'CSV copy by Python'
+body = 'Copy completed'
+sender_email = 'muhammadamirulafiq@graduate.utm.my'
+receiver_email = 'aafiq2347@gmail.com'
+password = input(str(Enter password))  
+	
+message = 'subject ' + subject+'nn' + body
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login(sender_email, password)
+server.sendmail(sender_email, receiver_email, message)
+	
+print(your file copy has finished.)
